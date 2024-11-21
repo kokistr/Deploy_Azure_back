@@ -4,14 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 # CORS設定を更新
-CORS(app, resources={
-    r"/api/*": {
-        "origins": [
-            "http://localhost:3000",
-            "https://techo-gen-8-step3-testapp-node2-28.azurewebsites.net"
-        ]
-    }
-})
+CORS(app, resources={r"/api/*": {"origins": "https://techo-gen-8-step3-testapp-node2-28.azurewebsites.net"}})  # CORS設定を更新
 
 @app.route('/', methods=['GET'])
 def hello():
