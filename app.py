@@ -2,7 +2,16 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": ["http://localhost:3000","https://github.com/kokistr/Deploy_Azure_front.git"]})  # CORS設定を更新
+
+# CORS設定を更新
+CORS(app, resources={
+    r"/api/*": {
+        "origins": [
+            "http://localhost:3000",  # ローカル環境（不要だがメモがてらに残してる）
+            "https://techo-gen-8-step3-testapp-node2-28.azurewebsites.net"  # フロントエンドの本番URL
+        ]
+    }
+})
 
 @app.route('/', methods=['GET'])
 def hello():
@@ -30,4 +39,5 @@ def echo():
     return jsonify({"message": f"echo: {message}"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # デバッグモードをローカル環境では有効に、本番では無効に
+    app.run(debug=False)
