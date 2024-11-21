@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import os  # 追加、環境変数を取得するためのモジュール
+import os  # 追加環境変数を取得するためのモジュール
 
 app = Flask(__name__)
 
