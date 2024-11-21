@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import os  # 追加、環境変数を取得するためのモジュール
 
 app = Flask(__name__)
 
@@ -41,3 +42,6 @@ def echo():
 if __name__ == '__main__':
     # デバッグモードをローカル環境では有効に、本番では無効に
     app.run(debug=False)
+    # 環境変数PORTを取得（デフォルトは8000）追加
+    port = int(os.environ.get('PORT', 8000))
+    app.run(host='0.0.0.0', port=port, debug=False)
