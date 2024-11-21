@@ -43,6 +43,10 @@ def echo():
 def robots():
     return "User-agent: *\nDisallow:", 200, {'Content-Type': 'text/plain'}
 
+@app.route('/health', methods=['GET'])
+def health():
+    return "OK", 200
+
 if __name__ == '__main__':
     # 環境変数PORTを取得（デフォルトは8000）
     port = int(os.environ.get('PORT', 8000))
