@@ -38,6 +38,10 @@ def echo():
     # 'message' プロパティが含まれていることを確認
     message = data.get('message', 'No message provided')
     return jsonify({"message": f"echo: {message}"})
+    
+@app.route('/robots933456.txt', methods=['GET'])
+def robots():
+    return "User-agent: *\nDisallow:", 200, {'Content-Type': 'text/plain'}
 
 if __name__ == '__main__':
     # 環境変数PORTを取得（デフォルトは8000）
