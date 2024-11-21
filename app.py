@@ -40,8 +40,7 @@ def echo():
     return jsonify({"message": f"echo: {message}"})
 
 if __name__ == '__main__':
-    # デバッグモードをローカル環境では有効に、本番では無効に
-    app.run(debug=False)
-    # 環境変数PORTを取得（デフォルトは8000）追加
+    # 環境変数PORTを取得（デフォルトは8000）
     port = int(os.environ.get('PORT', 8000))
+    # デバッグモードをローカル環境では有効に、本番では無効に
     app.run(host='0.0.0.0', port=port, debug=False)
